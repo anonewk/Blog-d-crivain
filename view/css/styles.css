@@ -1,0 +1,298 @@
+body{
+	background-image: url("Lituya_Bay_Alaska.jpg");
+	margin: 5px;
+}
+/*Page HOME*/
+
+/*Debut HEADER*/
+header{
+	display: flex;
+	background: white;
+	border-bottom: 5px double #052942;
+	height: 165px;
+
+}
+h1{
+	font-family: 'Dancing Script', cursive;
+	color:#041F33;
+	font-size: 3.2em;
+	margin: auto;
+	text-align: center;
+}
+h2{	
+font-size: 1.6em;
+}
+h3{/*Article*/
+	margin:2px;
+	text-align: center;
+	font-family: 'Dancing Script', cursive;
+}
+h4{
+	font-family: 'Courgette', cursive;
+	margin:0px;
+	text-align: center;
+	font-size:1.2em; 
+    border: solid 1px;
+   background: #0B8AA1;
+	color:white;
+}
+h5 a{
+	font-family: 'Helvetica';
+	font-size: 1.2em;
+	color: white;
+	margin: 0px;
+}
+h5{
+	background:  #0B8AA1;
+	margin:5px;
+	text-align: center;
+}
+p{
+	font-family: 'Raleway', sans-serif;
+	
+}
+#headR_Home{
+	height:120px;
+	display: flex;
+	flex-direction: column;
+	width:65%;
+	margin: auto;
+	
+}
+#nav_Log{
+	display: flex;
+	flex-direction: column;
+	justify-content: space-around;
+	width: 35%;
+}
+
+#deco_In_Header{
+	height: 50px;
+	width: 85px;
+	transform:scaleX(-1);
+}
+
+/*Fin HEADER*/
+section{
+	background:rgba(255,255,255,0.8);
+	/*height: 790px;*/
+}
+
+#authorDeco{
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+}
+#secondSideDeco{
+	margin: auto;
+	background: white;
+	width:80%;
+	height: inherit;
+	border-left: solid #052942 1px;
+    border-right: solid #052942 1px;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+}
+#rules{
+	margin: 10px;
+	width: 80%;
+	border-bottom: solid 1px #052942;
+}
+#subBlock{
+	display: flex;
+    flex-direction: column;
+    width: 80%;
+    height: 570px;
+    margin-bottom: 10px;
+    padding:10px;
+    background: rgba(37,138,161, 0.2);
+}
+.formulaires{
+	background: #ffffffb5;
+	width: 60%;
+	margin: auto;
+	border-left: solid 1px #052942;
+	border-right: solid 1px #052942;
+    padding: 5px;
+}
+form{
+	display: flex;
+	flex-direction: column;
+	width: 80%;
+	font-family: 'Arial';
+}
+form input{
+	width:60%;
+	float: right;
+}
+#valide, #validation, #save, #send,#edit{
+	background: white;
+    border-radius: 5px;
+    box-shadow: none;
+    margin: auto;
+    margin-top: 5px;
+    font-size: 1em;
+    font-family: 'Raleway';
+}
+/*---CHAPTERS---*/
+#introChapters{
+	height:inherit;
+	text-align: center;
+	width: 80%
+}
+#seleChap{
+margin-top: 10px;
+width: 100%;
+}
+.sumChapters{
+	width: inherit;
+	margin: 0px;
+}
+.thumbnail{
+	border-bottom: solid 1px #052942;
+	margin: auto;
+	padding: 5px;
+	width: 85%;
+	margin-bottom: 1px;
+}
+/*---CHAPTER---*/
+#chapterText h2{
+	text-align: center;
+}
+
+#chapterText{
+	text-align: justify;
+	padding-right: 50px;
+	padding-left: 50px;
+}
+#chapterSideDeco{
+	margin: auto;
+	background: white;
+	width:80%;
+	border-left: solid 1px #052942;
+	border-right:  solid  1px #052942;
+	display: flex;
+	flex-direction: column;
+}
+#showComms{
+	width: 90%;
+    margin: auto;
+}
+.commChapter{
+	color: black;
+	margin:auto;
+	width: 80%
+}
+.restrictionMembre{
+	text-align: center;
+	font-size: 1.1em;
+}
+.restrictionMembre a{
+color:  #052942;
+font-style: italic;
+}
+.membreComm{
+	font-size: 1em;
+	margin:2px;
+}
+.attentionRequired{
+	color: #258aa1;
+    font-style: italic;
+    font-size: 0.7em;
+
+}
+.signaler{
+	color:#0B8AA1;
+	font-size: 0.8em;
+	font-style: italic;
+	padding-left: 5px;
+}
+/*FORM ADMIN*/
+p.warningAcces{
+	font-size: 1.2em;
+	height: 700px;
+}
+p.warning{
+
+	font-style: italic;
+	font-size: 0.9em;
+	margin: 5px;
+	margin-bottom: 5px;
+}
+#AdminConnexion{
+	background: white;
+    border: #052942 2px inset;
+    margin: auto;
+    width: 60%;
+    padding: 10px;
+}
+#headband{
+	background: white;
+	border-bottom: double #052942 5px;
+	display: flex;
+    justify-content: space-between;
+    padding:5px;
+}
+#lastChapUpDate{
+	width: 45%;
+
+}
+#lastCommUpDate{
+	width:45%;
+}
+#lastChapUpDate p, #lastCommUpDate p{
+font-size: 0.8em;
+}
+.maj{
+	text-transform: uppercase;
+}
+#editChapitre{
+	margin: 50px;
+}
+#adminPannel{
+	display: flex;
+    flex-direction: row-reverse;
+    justify-content: space-between;
+
+}
+#gestionBlock{
+	width:25%;
+	height:inherit;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	background:rgba(255, 255, 255, 0.1);
+	align-items: center;
+}
+#CommAdmin,#ChapAdmin{
+	text-align: center;
+	margin-bottom: 10px;
+}
+#WrittingChap{
+	background: white;
+	width: 75%;
+    border-left: 2px #052942 solid;
+    padding: 5px;
+        display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+#deletButton, #okButton,#changeButton, #deleteChap{
+	margin: 10px;
+    padding: 5px;
+    font-size: 0.9em;
+    
+}
+#deletButton a, #okButton a,#changeButton a, #deleteChap a{
+	color: #052942;
+
+}
+#deletButton a,#deleteChap a {
+	border-bottom:#ff00006b solid 2px;
+	border-radius: 5px;
+}
+#okButton a,#changeButton a{
+	border-bottom:#052942 solid 2px;
+	border-radius: 5px;
+}
