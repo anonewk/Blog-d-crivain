@@ -14,7 +14,7 @@ if (isset($_GET['action'])){
 		header("Location:index.php");
 	}
 
-/*--------------------------------LOGIN / SUBSCRIBE----------------------------------------*/
+/*--------------------------------LOGIN / SUBSCRIBE----------------------------------------*/ //Redirection on Connexion page
 	if($_GET['action']=='inscription'){
 		require("controller/Front.php");
 	 	require ("controller/Back.php");
@@ -22,60 +22,71 @@ if (isset($_GET['action'])){
 	 		formulaire();
 	}//end of $_GET['action']=='inscription'		
 
-	//end of if (isset($_POST['lastname'])) 
+    
+    // Condition of connexion
 	if ($_GET['action']=='logger'){
 		$checkPseudo = htmlspecialchars($_POST['checkPseudo']);
 		$checkmdp = $_POST['checkmdp'];
+        
 
-		if ( isset($checkPseudo)&& isset($checkmdp) ){
+		if (isset($checkPseudo)&& isset($checkmdp) ){
 			$noNickName="Aucun pseudo reconnu";
 			$NoMatch="Pseudo ou mot de passe incorrect";
 				require("controller/Front.php");
-				require ("controller/Back.php");	
+				require ("controller/Back.php");
 				headBand();
 				checkInfo($checkPseudo,$checkmdp);
 				noNickName($noNickName);
 				NoMatch($NoMatch);
+          
+              
 		}
-
 	}//end of 'logger'
+    
+    //Admin redirection  
+    if($_GET['action'] == 'adminPage')
+    {    
+        require("controller/Front.php");
+        require ("controller/Back.php");	
+        lastUpdate();
+
+    }
+        
 
 /*--------------------------------END OF SUBSCRIB/ LOGIN----------------------------------------*/
 
 /*--------------------------------ADMIN LOG IN----------------------------------------*/
-	if($_GET['action']=='admin'){
-		if (isset($_SESSION["pseudo"])) {
-			if( ($_SESSION["id"])=="115"){
-				require("controller/Front.php");
-				require("controller/Back.php");
-				headBand();
-				lastUpdate();
-			}/*End of id's check*/
-		}
-		require("controller/Front.php");
-		require("controller/Back.php");
-		headBand();
-		adminPage();
-	}//end of 'admin'
-
-	if($_GET['action']=='adminOnly'){
-		if (!isset($AdminPseudo)&& !isset($AdminPwd)) {
-			$AdminPseudo=htmlspecialchars($_POST['IdAdmin']);
-			$AdminPwd=$_POST['PwdAdmin'];
-				require("controller/Front.php");
-				require("controller/Back.php");
-				headBand();
-				lastUpdate();
-				adminConnexion($AdminPseudo,$AdminPwd);
-		}else{
-			require("controller/Front.php");
-			require("controller/Back.php");
-			headBand();
-			lastUpdate();
-			adminConnexion($AdminPseudo,$AdminPwd);
-			
-		}
-	}//END 'adminOnly'
+//		"if ($_GET['action']=='logger') {
+//		
+//				require("controller/Front.php");
+//				require("controller/Back.php");
+//				headBand();
+//				lastUpdate();
+//
+//		}
+//		require("controller/Front.php");
+//		require("controller/Back.php");
+//		headBand();
+//		adminPage();
+//	
+//	if($_GET['action']=='logger'){
+//		if (!isset($AdminPseudo)&& !isset($AdminPwd)) {
+//			$AdminPseudo=htmlspecialchars($_POST['IdAdmin']);
+//			$AdminPwd=$_POST['PwdAdmin'];
+//				require("controller/Front.php");
+//				require("controller/Back.php");
+//				headBand();
+//				lastUpdate();
+//				adminConnexion($AdminPseudo,$AdminPwd);
+//		}else{
+//			require("controller/Front.php");
+//			require("controller/Back.php");
+//			headBand();
+//			lastUpdate();
+//			adminConnexion($AdminPseudo,$AdminPwd);
+//			
+//		}
+//	}"//END 'adminOnly'
 /*--------------------------------END OF ADMIN CONNEXION----------------------------------------*/
 /*--------------------------------CHAPTERS----------------------------------------*/
  	if ($_GET['action']=='chapitres') {

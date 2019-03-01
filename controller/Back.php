@@ -5,7 +5,7 @@ require_once("./model/chaptersManager.php");
 require_once("./model/commentsManager.php");
 
 function adminPage(){
-	require("./view/pages/connexionAdmin.php");
+	require("./view/pages/adminPage.php");
 }
 
 function formulaire(){
@@ -20,6 +20,7 @@ function sessionOut(){
 function checkInfo($checkPseudo,$checkmdp){
 	$checkUser= new membersManager();
 	$userLogin= $checkUser->checkInfo($checkPseudo,$checkmdp);
+    require("./view/pages/adminPage.php");
 	//A redirection will be done on the Adminpage.php
 }
 //
@@ -32,7 +33,7 @@ function checkInfo($checkPseudo,$checkmdp){
 function adminConnexion($AdminPseudo,$AdminPwd){
 	$adminlog= new membersManager();
 	$infoAdmin= $adminlog->AdminCheckInfo($AdminPseudo,$AdminPwd);
-	require("./view/pages/adminPage.php");
+	
 }
 
 /*--------------------------------MESSAGE LOGIN----------------------------------------*/
@@ -77,7 +78,8 @@ function lastUpdate(){
 
 	$repotedComm= new CommentsManager();
 	$reportedComments= $repotedComm->getReportingComments();
-
+    
+    require("./view/portions/header.php");
 	require("./view/pages/adminPage.php");
 }
 /*--------------------------------CHAPTERS----------------------------------------*/

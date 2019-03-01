@@ -31,14 +31,15 @@ class ChaptersManager extends Manager
 	}
 	public function postChapter($titleChap,$textChap){//This function will added a new chapter
 		$bdd=$this->dbConnect();
-		$newChap=$bdd->prepare('INSERT INTO chapitres (titre,textchap, date_edition) VALUES(:titre,:textchap, NOW() )' );
+		$newChap=$bdd->prepare('INSERT INTO chapitres (titre, textchap, date_edition) VALUES(:titre, :textchap, NOW() )' );
 		$newChap->execute(array(
+			
 			'titre'=>$titleChap,
 			'textchap'=>$textChap
 			
 		));
-		$newChap=$bdd->query('SELECT chapitres. membres.pseudo FROM chapitres LEFT JOIN membres ON chapitres');
-		header("Location:index.php?action=admin");
+		$newChap=$bdd->query('SELECT id, titre FROM chapitres');
+		header("Location:index.php?action=adminPage");
 	}
 
 	public function reditChapter($idEdit,$titleEdit,$textEdit){//This function will changed a chapter
@@ -53,8 +54,8 @@ class ChaptersManager extends Manager
 	}
 	public function eraseChapter($idChapter){//This function will deleted
 		$bdd=$this->dbConnect();
-		$dltAChap=$bdd->prepare('DELETE FROM chapitres WHERE id=?');
+		$dltAChap=$bdd->prepare('DELETE  FROM chapitres WHERE id=?');
 		$eraseComms=$dltAChap->execute(array($idChapter));
-		header("Location:./index.php?action=admin");
+		header("Location:index.php?action=adminPage");
 	}
 }
