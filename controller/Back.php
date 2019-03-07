@@ -108,6 +108,7 @@ function deletedChapAndComments($idChapter){
 
 	$deletedAllComments= new CommentsManager();
 	$dltAllCommments= $deletedAllComments-> deleteAllComments($idChapter);
+    header("Location:index.php?action=adminPage");
 	//A redirection will be done on the Adminpage.php
 }
 /*--------------------------------END CHAPTERS----------------------------------------*/

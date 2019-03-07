@@ -6,11 +6,12 @@
 				while($chapitre = $pickOneChap->fetch()){
 			?>
 			<h2><?php echo htmlspecialchars($chapitre['titre']);?></h2>		
-				<p><?php echo($chapitre['textchap'])?></p>
+				<p><?php echo($chapitre['textchap'])?></p>    
 			<?php
 			}
 				$pickOneChap->closeCursor();
 			?>
+			
 		</article>
 
 		<article id="showComms">

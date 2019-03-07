@@ -39,17 +39,13 @@ class CommentsManager extends Manager
 		$pbComm->execute(array(
 			'id_comm'=> $warningComm
 		));
-		$recupIdChap= $bdd->prepare('SELECT id_chap FROM commentaires WHERE id_comm=:id_comm');
-		$recupIdChap->execute(array(
-			'id_comm'=> $warningComm
-		));
 		
 		header("Location:./index.php?action=selectionchapitre&id=$idChap");
 	 }
 
 	public function getReportingComments(){// In the admin section, It will list all the comments reported.
 		$bdd=$this->dbConnect();
-    $reportedComm=$bdd->query('SELECT * FROM commentaires');
+    $reportedComm=$bdd->query('SELECT * FROM commentaires WHERE warning_comm > 0');
 		return $reportedComm;
 	}
 

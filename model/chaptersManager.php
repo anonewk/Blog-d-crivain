@@ -56,6 +56,6 @@ class ChaptersManager extends Manager
 		$bdd=$this->dbConnect();
 		$dltAChap=$bdd->prepare('DELETE  FROM chapitres WHERE id=?');
 		$eraseComms=$dltAChap->execute(array($idChapter));
-		header("Location:index.php?action=adminPage");
+
 	}
 }

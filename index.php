@@ -135,6 +135,7 @@ if (isset($_GET['action'])){
 			require("controller/Back.php");
 			deletedChapAndComments($idChapter);
 	}
+    
 /*--------------------------------COMMENTS----------------------------------------*/
 	if($_GET['action']=='ValiderComment'){
 		$idChap=$_GET['id'];
