@@ -23,12 +23,6 @@ function checkInfo($checkPseudo,$checkmdp){
     require("./view/pages/adminPage.php");
 	//A redirection will be done on the Adminpage.php
 }
-//
-//function subscribe($lastname,$firstname,$pseudo,$mdp,$mail,$pseudoPresent){
-//	$newMember= new membersManager();
-//	$subMember= $newMember->getNewUser($lastname,$firstname,$pseudo,$mdp,$mail,$pseudoPresent);
-//	//A redirection will be done on the Adminpage.php
-//}
 
 function adminConnexion($AdminPseudo,$AdminPwd){
 	$adminlog= new membersManager();
@@ -79,7 +73,7 @@ function lastUpdate(){
 	$repotedComm= new CommentsManager();
 	$reportedComments= $repotedComm->getReportingComments();
     
-    require("./view/portions/header.php");
+    require("./view/pages/header.php");
 	require("./view/pages/adminPage.php");
 }
 /*--------------------------------CHAPTERS----------------------------------------*/
@@ -111,6 +105,7 @@ function deletedChapAndComments($idChapter){
     header("Location:index.php?action=adminPage");
 	//A redirection will be done on the Adminpage.php
 }
+
 /*--------------------------------END CHAPTERS----------------------------------------*/
 
 /*--------------------------------COMMENTS----------------------------------------*/

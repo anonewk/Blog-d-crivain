@@ -2,8 +2,9 @@
 require_once("./model/chaptersManager.php");
 require_once("./model/commentsManager.php");
 
+
 function  headBand(){
-	require ("./view/portions/header.php");
+	require ("./view/pages/template.php");
 }
 /*------------------CHAPTERS-----------------------*/
 function getAllChaps(){
@@ -24,6 +25,7 @@ function getOneChap(){
 /*------------------END CHAPTERS-----------------------*/
 
 /*------------------COMMENTS-----------------------*/
+
 function addComments($textComment,$idChap){
 	$addComm= new CommentsManager();
 	$newComment=$addComm->addComment($textComment,$idChap);
