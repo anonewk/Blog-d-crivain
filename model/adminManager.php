@@ -24,7 +24,7 @@ class membersManager extends Manager
 	   		else{
 	   			echo "Une erreur est survenu. Veuilliez ré-essayer.";
 	    	}
-//        	return $isPasswordCorrect; 
+//        	
 		}
 	
 	}

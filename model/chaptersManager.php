@@ -15,7 +15,9 @@ class ChaptersManager extends Manager
 		 $selectOne->execute(array(
 			'idPage'=>$_GET['id']
 		 	 ));
-		return $selectOne;
+        $chapitre= $selectOne->fetch();
+        
+		return $chapitre;
 	
 	}
 	public function listChap(){	//This function will call all the chapter, and only the first 250 caracters.

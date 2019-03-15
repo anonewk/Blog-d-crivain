@@ -1,5 +1,7 @@
-<section>
-	
+
+<?php ob_start();?>
+<?php $titlePage = 'Chapitre';?>
+<section>	
 	<div id="secondSideDeco">
 		<aside id="introChapters">
 			<h3>Les chapitres:</h3>
@@ -15,7 +17,7 @@
 					
 					<h5><a href="./index.php?action=selectionchapitre&amp;id=<?php echo $list['id']; ?>"><?php echo htmlspecialchars($list['titre'])?></a>
 					</h5>
-						<p class="sumChapters"> <?= nl2br($list['textchap']);?> [...]</br></p>
+						<p class="sumChapters"> <?= nl2br($list['textchap']);?> [...]<br></p>
 						Mise en ligne le:<?php echo htmlspecialchars($list['date_fr']);?>
 				</div>
 				<?php
@@ -25,6 +27,6 @@
 		</article>
 	</div>
 </section>
+<?php require('template.php'); ?>
+<?php $content = ob_get_clean();?>
 
-</body>
-</html>

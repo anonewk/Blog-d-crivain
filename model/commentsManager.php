@@ -21,7 +21,7 @@ class CommentsManager extends Manager
 		
 		$newComm=$bdd->prepare('INSERT INTO commentaires (id_chap, contenu, date_poste) VALUES(:id_chap, :contenu, NOW()) ');
 
-		$newComm->execute(array(
+	$newComm->execute(array(
                 ':contenu'=>$textComment,
                 ':id_chap'=>$idChap
         
@@ -29,7 +29,7 @@ class CommentsManager extends Manager
 		));
 
 		$newComm=$bdd->query('SELECT id_chap, contenu, date_poste FROM commentaires');
-		
+			
 		header("Location:./index.php?action=selectionchapitre&id=$idChap");
 	}
 

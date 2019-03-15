@@ -8,7 +8,7 @@
 		<link rel="stylesheet" type="text/css" href="view/css/styles.css">
 		<link rel="stylesheet" type="text/css" href="view/css/stylesA.css">
 		<link rel="stylesheet" type="text/css" href="view/css/stylesResponsiv.css">
-    <title></title>
+    <title>Admin</title>
 </head>
 
 <body>

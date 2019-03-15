@@ -1,16 +1,10 @@
 <section>
 	<div id="chapterSideDeco">
 		<article id="chapterText"> 
-			<?php
-
-				while($chapitre = $pickOneChap->fetch()){
-			?>
-			<h2><?php echo htmlspecialchars($chapitre['titre']);?></h2>		
-				<p><?php echo($chapitre['textchap'])?></p>    
-			<?php
-			}
-				$pickOneChap->closeCursor();
-			?>
+		
+			<h2><?php echo htmlspecialchars($pickOneChap['titre']);?></h2>		
+				<p><?php echo($pickOneChap['textchap'])?></p>    
+		
 			
 		</article>
 
@@ -54,5 +48,3 @@
 
 				</div>
 			</section>
-</body>
-</html>
