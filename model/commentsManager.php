@@ -40,7 +40,7 @@ class CommentsManager extends Manager
 			'id_comm'=> $warningComm
 		));
 		
-		header("Location:./index.php?action=selectionchapitre&id=$idChap");
+		header("Location:./index.php?action=chapitres");
 	 }
 
 	public function getReportingComments(){// In the admin section, It will list all the comments reported.
@@ -61,7 +61,7 @@ class CommentsManager extends Manager
 		$pbComm->execute(array(
 			'id_comm'=> $id_comm
 		));
-		header("Location:./index.php?action=admin");
+		header("Location:./index.php?action=adminPage");
 	}
 	public function deleteAllComments($idChapter){//This function will deleted ALL the comments in One chapter.
 		$bdd=$this->dbConnect();

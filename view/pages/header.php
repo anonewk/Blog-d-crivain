@@ -1,4 +1,4 @@
-<?php ob_start(); ?>
+
 <header>
     <div id="headR_Home">
 
@@ -43,5 +43,5 @@
 
     </div>
 </header>
-<?php require('template.php'); ?>
-<?php $content = ob_get_clean();?>
+
+       

@@ -2,15 +2,22 @@
 require_once("./model/chaptersManager.php");
 require_once("./model/commentsManager.php");
 
-
+//////////////////////VIEW\\\\\\\\\\\\\\\\\\\\\\\
 function  headBand(){
-	require ("./view/pages/template.php");
+    ob_start();
+    
+    $content = ob_get_clean();
+    require('./view/pages/template.php');
+    
 }
+
 /*------------------CHAPTERS-----------------------*/
 function getAllChaps(){
 	$callChapters= new ChaptersManager();
 	$listChapters=$callChapters-> listChap();
+    
 	require("./view/pages/chapitres.php");
+    
 }
 
 function getOneChap(){

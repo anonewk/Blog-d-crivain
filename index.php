@@ -5,10 +5,13 @@ require("controller/Front.php");
 require("controller/Back.php");
 
 try {
+    
+     
     if (!(isset($_GET['action']))) {
-		headBand();
-
-
+	   headBand();	
+        getAllChaps();
+    }
+     
 if (isset($_GET['action'])){
 
 	if($_GET['action']=='logOut'){//log ou session
@@ -18,7 +21,7 @@ if (isset($_GET['action'])){
 
 /*--------------------------------LOGIN / SUBSCRIBE----------------------------------------*/ //Redirection on Connexion page
 	if($_GET['action']=='inscription'){
-
+               headBand();	
 	 		formulaire();
 	}//end of $_GET['action']=='inscription'		
 
@@ -33,7 +36,7 @@ if (isset($_GET['action'])){
 			$noNickName="Aucun pseudo reconnu";
 			$NoMatch="Pseudo ou mot de passe incorrect";
 
-				
+				    
 				checkInfo($checkPseudo,$checkmdp);
 				noNickName($noNickName);
 				NoMatch($NoMatch);
@@ -45,7 +48,7 @@ if (isset($_GET['action'])){
     //Admin redirection  
     if($_GET['action'] == 'adminPage')
     {    
-	
+	     headBand();	
         lastUpdate();
 
     }
@@ -55,13 +58,15 @@ if (isset($_GET['action'])){
 /*--------------------------------CHAPTERS----------------------------------------*/
  	if ($_GET['action']=='chapitres') {
 
-	
+	       headBand();	          
 		getAllChaps();
+
+            
 	}
 
 	if($_GET['action']=='selectionchapitre'){
 
-		
+		   headBand();	
 		getOneChap();
 	} 	
 
@@ -75,9 +80,8 @@ if (isset($_GET['action'])){
 
 	if ($_GET['action']=='editChap') {
 		$chapEdit=$_GET['id'];
-			require("controller/Front.php");
-			require("controller/Back.php");
-		
+			
+		    headBand();
 			editChapter();
 	}
 
@@ -86,6 +90,7 @@ if (isset($_GET['action'])){
 		$titleEdit=$_POST['title'];
 		$textEdit=$_POST['tinymce_Chap'];
         reEditChap($idEdit,$titleEdit,$textEdit);
+            headBand();
 			lastUpdate();
 			
 		}
@@ -103,7 +108,7 @@ if (isset($_GET['action'])){
 			addComments($textComment,$idChap);		
 	}
 	if ($_GET['action']=='signaler'){
-		$idChap=$_GET['id_chap'];
+		$idChap=$_GET['id_comm'];
 		$warningComm=$_GET['id'];
 			updateWarningComm($warningComm,$idChap);
 	}
@@ -120,8 +125,13 @@ if (isset($_GET['action'])){
 	}
 
 }
- }       
+       
 }
+  
+    
+     
+
+
 catch(Exception $e) {
     echo 'Erreur : ' . $e->getMessage();
 }

@@ -72,8 +72,7 @@ function lastUpdate(){
 
 	$repotedComm= new CommentsManager();
 	$reportedComments= $repotedComm->getReportingComments();
-    
-    require("./view/pages/header.php");
+  
 	require("./view/pages/adminPage.php");
 }
 /*--------------------------------CHAPTERS----------------------------------------*/

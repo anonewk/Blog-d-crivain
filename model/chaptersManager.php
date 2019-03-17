@@ -3,9 +3,11 @@ require_once("manager.php");
 
 class ChaptersManager extends Manager
 {
-	public function chapterCall(){//Chapter on the first page.
+    
+     public function chapterCall(){//Chapter on the first page.
 		$bdd=$this->dbConnect();
-		$chapters= $bdd->query('SELECT id,titre,textchap,date_format(date_edition,"%d.%m.%y")as date_fr FROM chapitres ORDER BY date_edition  DESC LIMIT 0,3');	
+		$chapters= $bdd->query('SELECT id,titre,textchap,date_format(date_edition,"%d.%m.%y")as date_fr FROM chapitres ORDER BY date_edition  DESC LIMIT 0,3');
+          
 		return $chapters;
 	}
 
@@ -23,6 +25,8 @@ class ChaptersManager extends Manager
 	public function listChap(){	//This function will call all the chapter, and only the first 250 caracters.
 		$bdd=$this->dbConnect();
 		$allchap= $bdd->query('SELECT id,titre,SUBSTR(textchap, 1, 250)as textchap,date_format(date_edition,"%d.%m.%y")as date_fr FROM chapitres  ');//Selection of the first 100 characters 
+        
+//        $list=$allchap->fetch();
 		return $allchap;
 	}
 

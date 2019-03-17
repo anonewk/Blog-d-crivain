@@ -1,6 +1,4 @@
 
-<?php ob_start();?>
-<?php $titlePage = 'Chapitre';?>
 <section>	
 	<div id="secondSideDeco">
 		<aside id="introChapters">
@@ -9,10 +7,9 @@
 		</aside>
 		
 		<article id="seleChap">
-
-				<?php
-					while ($list=$listChapters->fetch() ) {
-				?>
+          <?php  while ($list=$listChapters->fetch())
+                    {
+    ?>
 				<div class="thumbnail">
 					
 					<h5><a href="./index.php?action=selectionchapitre&amp;id=<?php echo $list['id']; ?>"><?php echo htmlspecialchars($list['titre'])?></a>
@@ -21,12 +18,9 @@
 						Mise en ligne le:<?php echo htmlspecialchars($list['date_fr']);?>
 				</div>
 				<?php
-					}
-					$listChapters->closeCursor();
-				?>
+}
+$listChapters->closeCursor();
+?>
 		</article>
 	</div>
 </section>
-<?php require('template.php'); ?>
-<?php $content = ob_get_clean();?>
-

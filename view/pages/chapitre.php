@@ -1,3 +1,4 @@
+
 <section>
 	<div id="chapterSideDeco">
 		<article id="chapterText"> 
@@ -20,13 +21,9 @@
 					
 						à posté le : <?php echo htmlspecialchars($commentaires['date_poste_fr']);?>
 						<p>
-						<?php
-							if ($commentaires['warning_comm'] == 1) {
-								echo '<span class="attentionRequired"> Vérification du contenu en cours</span>';
-							}
-						?>
-							<?= nl2br($commentaires['contenu']);?><span class="signaler"><a href="./index.php?action=signaler&amp;id=<?php echo $commentaires['id_chap']; ?>"> Signaler ce commentaire</a></span>
-						</p>
+					                                           
+							<?= nl2br($commentaires['contenu']);?><span class="signaler"><a href="./index.php?action=signaler&amp;id=<?php echo $commentaires['id_comm']; ?>"> Signaler ce commentaire</a></span>
+						</p>                                         
 
 					</span>
 				</span>
