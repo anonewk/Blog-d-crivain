@@ -5,7 +5,7 @@ require_once("./model/chaptersManager.php");
 require_once("./model/commentsManager.php");
 
 function adminPage(){
-	require("./view/pages/connexionAdmin.php");
+	require("./view/pages/adminPage.php");
 }
 
 function formulaire(){
@@ -20,48 +20,15 @@ function sessionOut(){
 function checkInfo($checkPseudo,$checkmdp){
 	$checkUser= new membersManager();
 	$userLogin= $checkUser->checkInfo($checkPseudo,$checkmdp);
-	//A redirection will be done on the Adminpage.php
-}
-
-function subscribe($lastname,$firstname,$pseudo,$mdp,$mail,$pseudoPresent){
-	$newMember= new membersManager();
-	$subMember= $newMember->getNewUser($lastname,$firstname,$pseudo,$mdp,$mail,$pseudoPresent);
+    require("./view/pages/adminPage.php");
 	//A redirection will be done on the Adminpage.php
 }
 
 function adminConnexion($AdminPseudo,$AdminPwd){
 	$adminlog= new membersManager();
 	$infoAdmin= $adminlog->AdminCheckInfo($AdminPseudo,$AdminPwd);
-	require("./view/pages/adminPage.php");
+	
 }
-
-/*--------------------------------MESSAGE LOGIN----------------------------------------*/
-function msgPWD($message){
-	$message;
-
-	require('./view/pages/inscription.php');
-}
-function msgMail($message){
-	$message;
-
-	require('./view/pages/inscription.php');
-}
-
-function infoIssues($infoIssues){
-	$infoIssues;
-	require('./view/pages/inscription.php');
-}
-function noNickName($noNickName){
-
-	$noNickName;
-	require('./view/pages/inscription.php');
-}
-function NoMatch($NoMatch){
-	$NoMatch;
-
-	require('./view/pages/inscription.php');
-}
-/*--------------------------------END MESSAGES----------------------------------------*/
 
 /*--------------------------------END CONNEXION----------------------------------------*/
 
@@ -77,7 +44,7 @@ function lastUpdate(){
 
 	$repotedComm= new CommentsManager();
 	$reportedComments= $repotedComm->getReportingComments();
-
+  
 	require("./view/pages/adminPage.php");
 }
 /*--------------------------------CHAPTERS----------------------------------------*/
@@ -106,8 +73,10 @@ function deletedChapAndComments($idChapter){
 
 	$deletedAllComments= new CommentsManager();
 	$dltAllCommments= $deletedAllComments-> deleteAllComments($idChapter);
+    header("Location:index.php?action=adminPage");
 	//A redirection will be done on the Adminpage.php
 }
+
 /*--------------------------------END CHAPTERS----------------------------------------*/
 
 /*--------------------------------COMMENTS----------------------------------------*/

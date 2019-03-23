@@ -3,9 +3,11 @@ require_once("manager.php");
 
 class ChaptersManager extends Manager
 {
-	public function chapterCall(){//Chapter on the first page.
+    
+     public function chapterCall(){//Chapter on the first page.
 		$bdd=$this->dbConnect();
-		$chapters= $bdd->query('SELECT id,titre,textchap,date_format(date_edition,"%d.%m.%y")as date_fr FROM chapitres ORDER BY date_edition  DESC LIMIT 0,3');	
+		$chapters= $bdd->query('SELECT id,titre,textchap,date_format(date_edition,"%d.%m.%y")as date_fr FROM chapitres ORDER BY date_edition  DESC LIMIT 0,3');
+          
 		return $chapters;
 	}
 
@@ -15,12 +17,16 @@ class ChaptersManager extends Manager
 		 $selectOne->execute(array(
 			'idPage'=>$_GET['id']
 		 	 ));
-		return $selectOne;
+        $chapitre= $selectOne->fetch();
+        
+		return $chapitre;
 	
 	}
 	public function listChap(){	//This function will call all the chapter, and only the first 250 caracters.
 		$bdd=$this->dbConnect();
 		$allchap= $bdd->query('SELECT id,titre,SUBSTR(textchap, 1, 250)as textchap,date_format(date_edition,"%d.%m.%y")as date_fr FROM chapitres  ');//Selection of the first 100 characters 
+        
+//        $list=$allchap->fetch();
 		return $allchap;
 	}
 
@@ -31,15 +37,15 @@ class ChaptersManager extends Manager
 	}
 	public function postChapter($titleChap,$textChap){//This function will added a new chapter
 		$bdd=$this->dbConnect();
-		$newChap=$bdd->prepare('INSERT INTO chapitres ( id_pseudoAuteur,titre,textchap, date_edition) VALUES(:id_pseudoAuteur,:titre,:textchap, NOW() )' );
+		$newChap=$bdd->prepare('INSERT INTO chapitres (titre, textchap, date_edition) VALUES(:titre, :textchap, NOW() )' );
 		$newChap->execute(array(
-			'id_pseudoAuteur'=>$_SESSION['id'],
+			
 			'titre'=>$titleChap,
 			'textchap'=>$textChap
 			
 		));
-		$newChap=$bdd->query('SELECT chapitres.id_pseudoAuteur, membres.pseudo FROM chapitres LEFT JOIN membres ON chapitres.id_pseudoAuteur=membres.id');
-		header("Location:index.php?action=admin");
+		$newChap=$bdd->query('SELECT id, titre FROM chapitres');
+		header("Location:index.php?action=adminPage");
 	}
 
 	public function reditChapter($idEdit,$titleEdit,$textEdit){//This function will changed a chapter
@@ -54,8 +60,8 @@ class ChaptersManager extends Manager
 	}
 	public function eraseChapter($idChapter){//This function will deleted
 		$bdd=$this->dbConnect();
-		$dltAChap=$bdd->prepare('DELETE FROM chapitres WHERE id=?');
+		$dltAChap=$bdd->prepare('DELETE  FROM chapitres WHERE id=?');
 		$eraseComms=$dltAChap->execute(array($idChapter));
-		header("Location:./index.php?action=admin");
+
 	}
 }
