@@ -10,13 +10,10 @@ nav ul{
 	align-items: center;
 }
 ul li{
-	
+	    border-right: white solid 2px;
 	    padding: 5px;
     text-align: center;
-    width: 43%;
-}
-ul li:nth-child(1){
-    border-right: white solid 2px;    
+    width: 33%;
 }
 nav a{
 	color:white;
@@ -25,27 +22,4 @@ nav a{
 
 nav a:hover{
 	color:white;
-}
-#pseudoc
-{
-    	color:white;
-	font-family: 'Raleway';
-    text-align: center;
-    list-style-type: none; 
-	background-color: #052942;
-	margin-right: 20px;
-    padding: 5px;
-    border-radius: 5px;
-    max-height: 50px;
-	display: flex;
-    justify-content: space-around;
-
-}
-#disconect{
-    list-style-type: none;
-    color: white;
-}
-#disconect:hover{
-	color:#DFF2FF;
-    
 }
