@@ -29,6 +29,10 @@
 
 </head>
 
+
+
+
+<body>
 <header>
     <div id="headR_Home">
 
@@ -73,11 +77,7 @@
 
     </div>
 </header>
-
-
-<body>
-
-    <?php  $content;?>
+    <?php echo $content;?>
 
 </body>
 

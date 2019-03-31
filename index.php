@@ -21,7 +21,7 @@ try {
 
 /*--------------------------------LOGIN / SUBSCRIBE----------------------------------------*/ //Redirection on Connexion page
 	   if($_GET['action']=='inscription'){
-            headBand();	
+
 	 		formulaire();
 	   }//end of $_GET['action']=='inscription'		
 
@@ -41,58 +41,81 @@ try {
 	}//end of 'logger'
     
     //Admin redirection  
-    if($_GET['action'] == 'adminPage')
-    {    
-	     headBand();	
+   if($_GET['action'] == 'adminPage'){   
+        if($_SESSION['id']){
+         	
         lastUpdate();
-
+         
+  }else {
+            header('Location: ./index.php');
+        }
     }
-        
 
 /*--------------------------------END OF SUBSCRIB/ LOGIN----------------------------------------*/
 /*--------------------------------CHAPTERS----------------------------------------*/
  	if ($_GET['action']=='chapitres') {
 
-	       headBand();	          
+          
 		getAllChaps();
 
-            
 	}
 
 	if($_GET['action']=='selectionchapitre'){
 
-		   headBand();	
+	
 		getOneChap();
 	} 	
 
 	if ($_GET['action']=='postChap') {
-		$titleChap=$_POST['title'];
+        if($_SESSION['id']){
+         $titleChap=$_POST['title'];
 		$textChap=$_POST['tinymce_Chap'];
 			
 			postChap($titleChap,$textChap);
 			lastUpdate();
+         
+  }else {
+            header('Location: ./index.php');
+        }
+		
 	}
 
 	if ($_GET['action']=='editChap') {
-		$chapEdit=$_GET['id'];
+        if($_SESSION['id']){
+        $chapEdit=$_GET['id'];
 			
-		    headBand();
+		
 			editChapter();
+         
+  }else {
+            header('Location: ./index.php');
+        }
+		
 	}
 
 	if($_GET['action']=='reEdit'){
-		$idEdit=$_GET['id'];
+        if($_SESSION['id']){
+     	$idEdit=$_GET['id'];
 		$titleEdit=$_POST['title'];
 		$textEdit=$_POST['tinymce_Chap'];
         reEditChap($idEdit,$titleEdit,$textEdit);
-            headBand();
 			lastUpdate();
+         
+  }else {
+            header('Location: ./index.php');
+        }
+	
 			
 		}
 	if ($_GET['action']=='eraseChap') {
-		$idChapter=$_GET['id'];
+        if($_SESSION){
+            	$idChapter=$_GET['id'];
 
 			deletedChapAndComments($idChapter);
+        }else{
+            header('Location: ./index.php');
+        }
+	
 	}
     
 /*--------------------------------COMMENTS----------------------------------------*/

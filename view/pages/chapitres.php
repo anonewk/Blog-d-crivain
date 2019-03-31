@@ -1,4 +1,5 @@
-<section>
+<?php ob_start();?>
+   <section>
     <div id="secondSideDeco">
         <aside id="introChapters">
             <h3>Les chapitres:</h3>
@@ -23,3 +24,5 @@ $listChapters->closeCursor();
         </article>
     </div>
 </section>
+<?php $content = ob_get_clean();?>
+<?php require('template.php');?>

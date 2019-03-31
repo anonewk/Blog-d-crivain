@@ -1,9 +1,10 @@
-<section>
+<?php ob_start()?>
+   <section>
     <div id="chapterSideDeco">
         <article id="chapterText">
 
-            <h2><?php echo htmlspecialchars($pickOneChap['titre']);?></h2>
-            <p><?php echo($pickOneChap['textchap'])?></p>
+            <h2><?php echo $pickOneChap['titre'];?></h2>
+            <p><?php echo $pickOneChap['textchap'];?></p>
 
 
         </article>
@@ -44,3 +45,5 @@
 
     </div>
 </section>
+<?php $content = ob_get_clean();?>
+<?php require('template.php');?>

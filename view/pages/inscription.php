@@ -1,4 +1,5 @@
-<section>
+<?php ob_start()?>
+   <section>
     <div id="secondSideDeco">
         <article id="rules">
             <p id="mentions">Projet réalisé dans le cadre de la formation OpenClassroom: Développeur Web Junior.</p>
@@ -11,10 +12,12 @@
                     <label name="checkmdp">Mot de passe:<input type="password" name="checkmdp" id="motDpasseMember" required /></label>
                     <input type="submit" id="validation" value="Valider" />
                 </form>
-        
+            
             </div>
         </div>
     </div>
     <!--end secondSideDeco-->
 
 </section>
+<?php $content = ob_get_clean();?>
+<?php require('./view/pages/template.php');?>

@@ -1,4 +1,5 @@
-		<section>
+		<?php ob_start()?>
+        <section>
 		    <article id="secondSideDeco">
 		        <h2>Ré-éditer le chapitre</h2>
 
@@ -15,3 +16,6 @@
 
 		    </article>
 		</section>
+
+<?php $content = ob_get_clean();?>
+<?php require('template.php');?>
